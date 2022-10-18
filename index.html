@@ -1,0 +1,634 @@
+<html><head><script type="text/javascript" async="" src="https://www.googleadservices.com/pagead/conversion_async.js"></script><script src="http://...mysite.../...myscript.js"></script>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta property="og:site_name" content="Caribou Contests">
+<meta property="og:url" content="https://cariboutests.com/">
+<meta property="og:type" content="website">
+
+<meta property="og:image" content="http://cariboutests.com/images/header.png">
+<meta property="og:description" content="Math games, puzzles, practice tests and worldwide challenges.">
+
+<script type="text/javascript" async="" src="https://www.googleadservices.com/pagead/conversion_async.js"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=AW-874800282"></script>
+<script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'AW-874800282');
+        </script>
+
+
+<meta property="og:title" content="Mastermind">
+<title>Mastermind</title><link href="/includes/css/jquery-ui.min.css" rel="stylesheet" type="text/css"><link rel="stylesheet" href="/includes/css/bootstrap.min.css"><link href="/includes/css/style.css" rel="stylesheet" type="text/css"><link rel="stylesheet" href="/includes/css/bootnavbar.min.css"><link rel="shortcut icon" href="/images/favicon.ico"><link rel="stylesheet" href="/includes/fontawesome/css/font-awesome.min.css"><script type="text/javascript" src="/includes/js/jquery-3.5.1.min.js"></script><script type="text/javascript" src="/includes/js/jquery.maskedinput.min.js"></script><script>window.lang = "en";</script><meta http-equiv="origin-trial" content="A7bG5hJ4XpMV5a3V1wwAR0PalkFSxLOZeL9D/YBYdupYUIgUgGhfVJ1zBFOqGybb7gRhswfJ+AmO7S2rNK2IOwkAAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjY5NzY2Mzk5LCJpc1RoaXJkUGFydHkiOnRydWV9"><script type="text/javascript" async="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/874800282/?random=1666060633594&amp;cv=9&amp;fst=1666060633594&amp;num=1&amp;bg=ffffff&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;u_h=864&amp;u_w=1536&amp;u_ah=816&amp;u_aw=1536&amp;u_cd=24&amp;u_his=6&amp;u_tz=-240&amp;u_java=false&amp;u_nplug=5&amp;u_nmime=2&amp;gtm=2oaah0&amp;sendb=1&amp;ig=1&amp;data=event%3Dgtag.config&amp;frm=0&amp;url=https%3A%2F%2Fcariboutests.com%2Fgames%2Fmastermind.php&amp;ref=https%3A%2F%2Fcariboutests.com%2Fstudents%2F&amp;tiba=Mastermind&amp;auid=746947507.1666034367&amp;hn=www.googleadservices.com&amp;async=1&amp;rfmt=3&amp;fmt=4"></script><meta http-equiv="origin-trial" content="A7bG5hJ4XpMV5a3V1wwAR0PalkFSxLOZeL9D/YBYdupYUIgUgGhfVJ1zBFOqGybb7gRhswfJ+AmO7S2rNK2IOwkAAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjY5NzY2Mzk5LCJpc1RoaXJkUGFydHkiOnRydWV9"><script type="text/javascript" async="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/874800282/?random=1666123981198&amp;cv=9&amp;fst=1666123981198&amp;num=1&amp;bg=ffffff&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;eid=376635470&amp;u_h=864&amp;u_w=1536&amp;u_ah=816&amp;u_aw=1536&amp;u_cd=24&amp;u_his=0&amp;u_tz=-240&amp;u_java=false&amp;u_nplug=5&amp;u_nmime=2&amp;gtm=2oaah0&amp;sendb=1&amp;ig=1&amp;data=event%3Dgtag.config&amp;frm=0&amp;url=https%3A%2F%2Fcariboutests.com%2Fgames%2Fmastermind.php&amp;ref=https%3A%2F%2Fcariboutests.com%2Fgames%2Fmastermind.php&amp;tiba=Mastermind&amp;auid=746947507.1666034367&amp;hn=www.googleadservices.com&amp;async=1&amp;rfmt=3&amp;fmt=4"></script></head>
+
+
+
+
+
+
+
+
+
+
+
+<body>
+<a name="top"></a>
+<div class="container-fluid">
+<div class="top">
+<div class="header">
+<div id="flag" class="d-none d-lg-block">
+<img src="/images/circle-flags/flags/CA.svg" alt="Flag" height="300px">
+<div id="gradient"></div>
+</div>
+<div id="status">
+<div id="message"><br><br>Welcome Umar Kotapali (<a href="/logout.php?logout=student&amp;header=/games/mastermind.php">Sign out</a>)<br><br></div>
+<div class="float-right">
+<div id="timer" style="float: right; width: 523.375px;" class="county caribou"><span class="county-days-wrapper first" style="width: 75.0625px;"><span class="county-days" style="position: absolute; width: 50.0625px; height: 36px; margin-top: 0px;">0</span></span><span class="county-hours-wrapper separator-left border-separator-right" style="width: 58.375px;"><span class="county-hours" style="position: absolute; width: 33.375px; height: 36px; margin-top: 0px;">15</span></span><span class="county-minutes-wrapper separator-left separator-left" style="width: 58.375px;"><span class="county-minutes" style="position: absolute; width: 33.375px; height: 36px; margin-top: 0px;">08</span></span><span class="county-seconds-wrapper separator-left last" style="width: 58.375px;"><span class="county-seconds" style="position: absolute; width: 33.375px; height: 36px; margin-top: -35.9996px;">07</span><span class="county-seconds" style="position: absolute; width: 33.375px; height: 36px; margin-top: 0.0014212px;">08</span></span><div class="clear"></div><span class="county-label-days" style="width: 75.0625px;">Days</span><span class="county-label-hours" style="width: 58.375px;">Hours</span><span class="county-label-minutes" style="width: 58.375px;">Minutes</span><span class="county-label-seconds" style="width: 58.375px;">Seconds</span><span class="county-days-wrapper first" style="width: 75.0625px;"></span><span class="county-hours-wrapper separator-left border-separator-right" style="width: 58.375px;"></span><span class="county-minutes-wrapper separator-left separator-left" style="width: 58.375px;"></span><span class="county-seconds-wrapper separator-left last" style="width: 58.375px;"></span><div class="clear"></div><span class="county-label-days" style="width: 75.0625px;">Days</span><span class="county-label-hours" style="width: 58.375px;">Hours</span><span class="county-label-minutes" style="width: 58.375px;">Minutes</span><span class="county-label-seconds" style="width: 58.375px;">Seconds</span></div>
+</div>
+</div> 
+<div id="logo">
+<a href="/">
+<img class="d-none d-lg-block" src="/images/logo/header_en.svg" alt="Caribou Contests" height="140">
+<img class="d-block d-lg-none" src="/images/logo/logo_en.svg" alt="Caribou Contests" width="140" height="140">
+</a>
+</div>
+<style> @media (max-width: 512px){.header #timer {
+                    visibility: hidden;
+                    z-index: -1;
+                }</style> </div>
+
+</div>
+<nav class="navbar navbar-expand-lg navbar-dark" id="bootnavbar">
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Menu">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="d-none col-10 row"> 
+<div class="nav-item dropdown col">
+<a class="notranslate nav-link active no_decoration" href="/logout.php?logout=student&amp;header=/games/mastermind.php">Sign Out</a> </div>
+<div class="nav-item dropdown col" id="help">
+<a class="nav-link active dropdown-toggle no_decoration" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="/faq.php">?</a>
+<ul class="dropdown-menu" style="z-index2005"> 
+<a class="dropdown-item no_decoration" href="/faq.php">Contact Us</a><a class="dropdown-item no_decoration" href="/faq.php">Help / FAQ</a><a class="dropdown-item no_decoration" href="/faq.php?node=0&amp;id=854#answer_4">Aide</a><a class="dropdown-item no_decoration" href="/public/help/persian_help.pdf">پشتيبانی</a><a class="dropdown-item no_decoration" href="https://cariboumatematik.com">Yardım-Açıklamalar</a><a class="dropdown-item no_decoration" href="/public/help/Chinese_Help.pdf">帮助</a><a class="dropdown-item no_decoration" href="/faq.php?node=0&amp;id=935#answer_8">Інструкція</a><a class="dropdown-item no_decoration" href="/faq.php?node=0&amp;id=943#answer_9">Kömək</a><a class="dropdown-item no_decoration" href="/faq.php?node=0&amp;id=975#answer_10">ជំនួយ</a><a class="dropdown-item no_decoration" href="/faq.php?node=0&amp;id=976#answer_11">Hilfe</a><a class="dropdown-item no_decoration" href="/faq.php?node=0&amp;id=977#answer_12">مزید معاونت</a> </ul>
+</div>
+<div class="nav-item col">
+<a class="notranslate nav-link active no_decoration" href="/faq.php">
+Contact Us </a>
+</div>
+</div>
+<div class="collapse navbar-collapse justify-content-center flex-wrap" id="navbarCollapse">
+<ul class="navbar-nav">
+<li class="nav-item dropdown">
+<a class="nav-link active dropdown-toggle no_decoration" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="/">
+Home </a>
+<ul class="dropdown-menu" style="z-index:2005">
+<a class="dropdown-item no_decoration" href="/">Homepage</a><a class="dropdown-item no_decoration" href="/public/about.php">About Caribou</a><a class="dropdown-item no_decoration" href="/index.php#news">News</a><a class="dropdown-item no_decoration" href="/posters.php">Posters</a><a class="dropdown-item no_decoration" href="/gallery.php">Gallery</a><li class="dropdown"><a class="dropdown-item dropdown dropdown-toggle no_decoration" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Social Media</a><ul class="dropdown-menu scrollable-menu" style="z-index:5"><a class="dropdown-item no_decoration" href="https://www.youtube.com/channel/UCe9dU5vJ41RDq249eUo004Q">YouTube</a><a class="dropdown-item no_decoration" href="https://www.dailymotion.com/CaribouContest">Dailymotion</a><a class="dropdown-item no_decoration" href="https://twitter.com/CaribouTests">Twitter</a><a class="dropdown-item no_decoration" href="https://www.facebook.com/cariboucontests">Facebook</a><a class="dropdown-item no_decoration" href="https://www.instagram.com/cariboucontests">Instagram</a></ul></li> </ul>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link active dropdown-toggle no_decoration" role="button" data-toggle="dropdown" data-hover="dropdown" aria-haspopup="true" aria-expanded="false" href="/public/participate.php">
+Contests </a>
+<ul class="dropdown-menu scrollable-menu" style="z-index:2005"> 
+<a class="dropdown-item no_decoration" href="/test/">Start the Contest</a><a class="dropdown-item no_decoration" href="/public/register.php">Register</a><a class="dropdown-item no_decoration" href="/public/participate.php">Caribou Cup Participation</a><a class="dropdown-item no_decoration" href="/public/contest_rules.php">Contest Rules</a><a class="dropdown-item no_decoration" href="/public/participate.php#upcoming">Upcoming Contests</a><a class="dropdown-item no_decoration" href="/public/prizes.php">Prizes</a><a class="dropdown-item no_decoration" href="/registered_schools.php">Participating Schools</a> </ul>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link active dropdown-toggle no_decoration" role="button" data-toggle="dropdown" data-hover="dropdown" aria-haspopup="true" aria-expanded="false" href="/payments/test_shop.php" style="white-space: normal">
+Shop </a>
+<ul class="dropdown-menu" style="z-index:2005">
+<a class="dropdown-item no_decoration" href="/public/Product_Overview.php">Products &amp; Prices</a><a class="dropdown-item no_decoration" href="/payments/test_shop.php">Make a Purchase</a><a class="dropdown-item no_decoration" href="/public/vouchers.php">Vouchers</a> </ul>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link active dropdown-toggle no_decoration" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="/test/practice_test_login.php" style="white-space: normal">
+Prepare </a>
+<ul class="dropdown-menu" style="z-index:2005">
+<li class="dropdown"><a class="dropdown-item dropdown dropdown-toggle no_decoration" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Games</a><ul class="dropdown-menu scrollable-menu" style="z-index:5"><a class="dropdown-item no_decoration" href="/games/">All Games</a><a class="dropdown-item no_decoration" href="/games/2048.php">2048 ©</a><a class="dropdown-item no_decoration" href="/games/bomb_defuser.php">Bomb Defuser ©</a><a class="dropdown-item no_decoration" href="/games/calcrostic.php">Calcrostic ©</a><a class="dropdown-item no_decoration" href="/games/chess.php">Chess ©</a><a class="dropdown-item no_decoration" href="/games/chomp.php">Chomp ©</a><a class="dropdown-item no_decoration" href="/games/dots.php">Dots ©</a><a class="dropdown-item no_decoration" href="/games/floodfill.php">Floodfill ©</a><a class="dropdown-item no_decoration" href="/games/fruit_salad.php">Fruit Salad ©</a><a class="dropdown-item no_decoration" href="/games/geometree.php">GeomeTree ©</a><a class="dropdown-item no_decoration" href="/games/hackenbush.php">Hackenbush ©</a><a class="dropdown-item no_decoration" href="/games/induction.php">Induction ©</a><a class="dropdown-item no_decoration" href="/games/iChomp.php">IsoChomp ©</a><a class="dropdown-item no_decoration" href="/games/knot_colouring.php">Knot Colouring ©</a><a class="dropdown-item no_decoration" href="/games/lights.php">Lights ©</a><a class="dropdown-item no_decoration" href="/games/magic_square.php">Magic Square ©</a><a class="dropdown-item no_decoration" href="/games/mastermind.php">Mastermind ©</a><a class="dropdown-item no_decoration" href="/games/mazes.php">Mazes ©</a><a class="dropdown-item no_decoration" href="/games/nim.php">Nim ©</a><a class="dropdown-item no_decoration" href="/games/skyscrapers.php">Skyscrapers ©</a><a class="dropdown-item no_decoration" href="/games/sliding_Blocks.php">Sliding Blocks ©</a><a class="dropdown-item no_decoration" href="/games/sokoban.php">Sokoban ©</a><a class="dropdown-item no_decoration" href="/games/sudoku.php">Sudoku ©</a><a class="dropdown-item no_decoration" href="/games/tangram.php">Tangram ©</a><a class="dropdown-item no_decoration" href="/games/towers_of_hanoi.php">Towers of Hanoi ©</a><a class="dropdown-item no_decoration" href="/games/turtle_walk.php">Turtle Walk ©</a><a class="dropdown-item no_decoration" href="/games/unknotting.php">Unknotting ©</a></ul></li><li class="dropdown"><a class="dropdown-item dropdown dropdown-toggle no_decoration" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Math History</a><ul class="dropdown-menu scrollable-menu" style="z-index:5"><a class="dropdown-item no_decoration" href="/public/history_en.php">History (English)</a><a class="dropdown-item no_decoration" href="/public/history_fr.php">Histoire</a><a class="dropdown-item no_decoration" href="/public/history_pr.php">تاریخچه</a><a class="dropdown-item no_decoration" href="/public/history_cn.php">历史</a><a class="dropdown-item no_decoration" href="/public/history_uk.php">Історія</a><a class="dropdown-item no_decoration" href="/public/history_az.php">Tarix</a><a class="dropdown-item no_decoration" href="/public/history_kh.php">ប្រវត្តិសាស្រ្ត</a><a class="dropdown-item no_decoration" href="/public/history_vi.php">Lịch sử Toán học</a><a class="dropdown-item no_decoration" href="/public/history_ms.php">Sejarah Matematik</a></ul></li><li class="dropdown"><a class="dropdown-item dropdown dropdown-toggle no_decoration" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Previous Tests</a><ul class="dropdown-menu scrollable-menu" style="z-index:5"><a class="dropdown-item no_decoration" href="/test/practice_test_login.php">Take a Past Contest</a><a class="dropdown-item no_decoration" href="/test/view_solutions.php">View Written Solutions</a><a class="dropdown-item no_decoration" href="/test/video_solutions.php">Video Solutions</a><a class="dropdown-item no_decoration" href="/test/practice_stats.php">Practice Test Statistics</a></ul></li><li class="dropdown"><a class="dropdown-item dropdown dropdown-toggle no_decoration" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">More</a><ul class="dropdown-menu scrollable-menu" style="z-index:5"><a class="dropdown-item no_decoration" href="/public/calcrostic_puzzle_book.php">Calcrostic Puzzle Book</a><a class="dropdown-item no_decoration" href="/public/other_resources.php">External Links</a></ul></li> </ul>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link active dropdown-toggle no_decoration" role="button" data-toggle="dropdown" data-hover="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
+Results </a>
+<ul class="dropdown-menu" style="z-index:2005">
+<a class="dropdown-item no_decoration" href="/test/results.php">Overview</a><a class="dropdown-item no_decoration" href="/test/contest_results.php">Single Contest Statistics</a><a class="dropdown-item no_decoration" href="/test/overall_results.php">Overall Contest Statistics</a><a class="dropdown-item no_decoration" href="/test/cup_results.php">Caribou Cup Standings</a><a class="dropdown-item no_decoration" href="/students/results.php">My Results</a><a class="dropdown-item no_decoration" href="/teachers/contest_results.php">My School's Contest Results</a> </ul>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link active dropdown-toggle no_decoration" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="/students/">
+Students </a>
+<ul class="dropdown-menu" style="z-index:2005">
+<a class="dropdown-item no_decoration" href="/students/">My Account Information</a><a class="dropdown-item no_decoration" href="/payments/purchasedItems.php">My Purchases</a><a class="dropdown-item no_decoration" href="/logout.php?logout=student&amp;header=/games/mastermind.php">Sign Out</a><li class="dropdown-divider"></li><a class="dropdown-item no_decoration" href="/students/contest_results.php">My Contest Results &amp; Certificates</a><a class="dropdown-item no_decoration" href="/students/cup_results.php">My Caribou Cup Standings</a> </ul>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link active dropdown-toggle no_decoration" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="/students/">
+Parents </a>
+<ul class="dropdown-menu" style="z-index:2005">
+<a class="dropdown-item no_decoration" href="/subscribe.php">Join Our Subscriber List</a><a class="dropdown-item no_decoration" href="/public/parents.php">Information for Parents</a> </ul>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link active dropdown-toggle no_decoration" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="/teachers/">
+Coordinators </a>
+<ul class="dropdown-menu animated fadeIn" style="z-index:2005">
+<a class="dropdown-item no_decoration" href="/teachers/login.php">Sign In</a><a class="dropdown-item no_decoration" href="/teachers/become_contact.php">Register</a><li class="dropdown-divider"></li><a class="dropdown-item no_decoration" href="/teachers/readme.php">Contest Coordinator Instructions</a><a class="dropdown-item no_decoration" href="/teachers/checklist.php">Contest Checklist</a><li class="dropleft"><a class="dropdown-item dropdown dropdown-toggle no_decoration" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Contest Day Guide</a><ul class="dropdown-menu scrollable-menu" style="z-index:5"><a class="dropdown-item no_decoration" href="/public/guide/Caribou%20Contests%20Contest%20Day%20Guide.pdf">Contest Day Guide (English)</a><a class="dropdown-item no_decoration" href="/public/guide/Caribou%20Contests%20Contest%20Day%20Guide%20FRENCH.pdf">Consignes de Surveillance</a><a class="dropdown-item no_decoration" href="/public/guide/TurkishSupervisionInstructions.pdf">Yarışması Uygulama Yönergeleri</a><a class="dropdown-item no_decoration" href="/public/guide/Caribou%20Contests%20Contest%20Day%20Guide%20UKRAINIAN.pdf">Інструкція для участі в конкурсі</a><a class="dropdown-item no_decoration" href="/public/guide/Caribou%20Contests%20Contest%20Day%20Guide%20AZERBAIJANI.pdf">Yarışmada nəzarətçi təlimatları</a><a class="dropdown-item no_decoration" href="/public/guide/Caribou%20Contests%20Contest%20Day%20Guide%20GERMAN.pdf">Instruktionen zur Beaufsichtigung des Mathe Wettbewerbs</a><a class="dropdown-item no_decoration" href="/public/guide/Caribou%20Contests%20Contest%20Day%20Guide%20URDU.pdf">‫ہدایات۔‬ ‫لیے‬ ‫کے‬ ‫نگرانی‬ ‫کی‬ ‫امتحان‬ ‫کے‬ ‫میتھ‬</a><a class="dropdown-item no_decoration" href="/public/guide/Caribou%20Contests%20Contest%20Day%20Guide%20CHINESE.pdf">北美驯鹿数学竞赛——网站操作指南</a><a class="dropdown-item no_decoration" href="/public/guide/Caribou%20Contests%20Contest%20Day%20Guide%20KHMER.pdf">សេចក្ត ីណែនាំេម្រាប់អនុរក្សម្ររួរពិនិរយការម្របឡងគែិរ វ ិទ្យា</a></ul></li> </ul>
+</li>
+<li class="nav-item dropdown" id="help">
+<a class="nav-link active dropdown-toggle no_decoration" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="/faq.php" style="white-space: normal">
+Help </a>
+<ul class="dropdown-menu scrollable-menu dropdown-submenu animated fadeIn" style="z-index:2005">
+ <a class="dropdown-item no_decoration" href="/faq.php">Contact Us</a><a class="dropdown-item no_decoration" href="/faq.php">Help / FAQ</a><a class="dropdown-item no_decoration" href="/faq.php?node=0&amp;id=854#answer_4">Aide</a><a class="dropdown-item no_decoration" href="/public/help/persian_help.pdf">پشتيبانی</a><a class="dropdown-item no_decoration" href="https://cariboumatematik.com">Yardım-Açıklamalar</a><a class="dropdown-item no_decoration" href="/public/help/Chinese_Help.pdf">帮助</a><a class="dropdown-item no_decoration" href="/faq.php?node=0&amp;id=935#answer_8">Інструкція</a><a class="dropdown-item no_decoration" href="/faq.php?node=0&amp;id=943#answer_9">Kömək</a><a class="dropdown-item no_decoration" href="/faq.php?node=0&amp;id=975#answer_10">ជំនួយ</a><a class="dropdown-item no_decoration" href="/faq.php?node=0&amp;id=976#answer_11">Hilfe</a><a class="dropdown-item no_decoration" href="/faq.php?node=0&amp;id=977#answer_12">مزید معاونت</a> </ul>
+</li>
+<li class="nav-item">
+<a class="notranslate nav-link active no_decoration" href="/logout.php?logout=student&amp;header=/games/mastermind.php">Sign Out</a></li> 
+<li class="nav-item dropdown" id="help">
+<a class="nav-link active dropdown-toggle no_decoration" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="/faq.php" style="white-space: normal">
+Language <span class="fa fa-globe"></span>
+</a>
+<ul class="dropdown-menu scrollable-menu dropdown-submenu animated fadeIn" style="z-index:2005">
+<a class="dropdown-item no_decoration" href="/set_lang.php?lang=en&amp;redirect=games%2Fmastermind.php">English</a><a class="dropdown-item no_decoration" href="/set_lang.php?lang=fr&amp;redirect=games%2Fmastermind.php">Français</a><a class="dropdown-item no_decoration" href="/set_lang.php?lang=cn&amp;redirect=games%2Fmastermind.php">中文</a><a class="dropdown-item no_decoration" href="/set_lang.php?lang=vi&amp;redirect=games%2Fmastermind.php">Tiếng Việt</a><a class="dropdown-item no_decoration" href="/set_lang.php?lang=ms&amp;redirect=games%2Fmastermind.php">Bahasa Melayu</a><a class="dropdown-item no_decoration" href="/set_lang.php?lang=tr&amp;redirect=games%2Fmastermind.php">Türkçe</a> </ul>
+</li>
+</ul> 
+</div> 
+</nav>
+<div class="container"> 
+<div class="content"> 
+<div class="covid-notice" style="color:red; width:100%; text-align: center; font-size:1.15em;" lang="en">
+<b>
+<p>Caribou in Covid: Contests are running online as usual. Check out the <a href="https://cariboutests.com/faq.php?node=979">FAQ</a> for further questions.</p>
+</b>
+</div>
+
+
+
+
+<!-- $('#main-modal').modal('show'); -->
+<!-- $('#main-modal').modal('hide'); -->
+<div class="modal fade" id="main-modal" tabindex="-1" role="dialog" aria-labelledby="main-modal-label" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+
+<div class="modal-title" id="main-modal-title"></div>
+</div>
+
+<div class="modal-body" id="main-modal-body"></div>
+<div class="modal-footer" id="main-modal-footer">
+
+<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+</div>
+</div>
+</div>
+</div>
+<div class="toast" id="main-toast" style="position: sticky; top: 8px; right: 8px; z-index:-1;" data-autohide="false">
+<div class="toast-header" id="main-toast-header">
+<strong class="mr-auto" id="main-toast-title"></strong>
+<small id="main-toast-time"></small>
+<button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+<span aria-hidden="true">×</span>
+</button>
+</div>
+<div class="toast-body" id="main-toast-body"></div>
+</div>
+<div class="clear"></div><span id="all_languages">English | <a href="/games/mastermind.php?lang=fr">Français</a> | <a href="/games/mastermind.php?lang=pr">فارسی</a> | <a href="/games/mastermind.php?lang=cn">中文</a> | <a href="/games/mastermind.php?lang=uk">Українська</a> | <a href="/games/mastermind.php?lang=az">Azerbaijani</a> | <a href="/games/mastermind.php?lang=kh">ខ្មែរ</a> | <a href="/games/mastermind.php?lang=vi">Tiếng Việt</a> | <a href="/games/mastermind.php?lang=ms">Bahasa Melayu</a></span><script type="text/javascript">var lang="en";var isTest = false;</script><style> .container-fluid{min-width: 900px;}.container{min-width: 875px;margin-bottom: 15px;}</style><div lang="en">
+<h3 id="title">Mastermind</h3>
+<script type="text/javascript">
+var max_num_tries = 10,
+    code_length = 4,
+    highest_number = 9,
+    max_allowed_duplicates = 1;
+</script>
+<script type="text/javascript" src="/interactive/mastermind.min.js"></script><div class="mastermind-game" lang="en" dir="ltr">     <style type="text/css">       td.headerLose { background-color: red; }       td.headerWin { background-color: #55FF55; }       table td#stats { width: 180px; padding: 0px; markin: 0px; }       #inForm input { background-color: yellow;};       #tableMast { border: 0px solid black; }       #tableMast td { font-size:16px;border:1px solid blue;height:25px;width:25px;text-align:center;padding:1px;margin:0px; }       #msg { color:red; }     </style><div id="gametext"></div><ul><li>In the table each <i>?</i> in the first row stands for one of the digits 1 through 9. Your task is to find these digits by guessing them in the yellow marked boxes at the bottom and then pressing or clicking enter.</li><li>Each number can only appear once in the solution.</li><li>For example, assume the ? ? ? ? stand for 4 2 6 1 and you guess 6 2 1 3 then the computer will return in the column 'right place' a 1 for the digit 2 and in the column 'wrong place' a 2 for the two digits 1 and 6.</li></ul>     <center>       <table border="0"><tbody><tr>         <td style="vertical-align:top">             <form id="inForm" onsubmit="return false;">               <table id="tableMast"><tbody><tr><td>?</td><td>?</td><td>?</td><td>?</td><td id="stats"><div style="font-size:15px;">How many digits are correct and in the right place</div></td><td id="stats"><div style="font-size:15px;">How many digits are correct but in the wrong place</div></td></tr><tr><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td></tr><tr><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td></tr><tr><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td></tr><tr><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td></tr><tr><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td></tr><tr><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td></tr><tr><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td></tr><tr><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td></tr><tr><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td></tr><tr><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td></tr><tr><td><input name="0" id="txt0" type="text" size="1" maxlength="1" autocomplete="off" onkeyup="nextBox(event)"></td><td><input name="1" id="txt1" type="text" size="1" maxlength="1" autocomplete="off" onkeyup="nextBox(event)"></td><td><input name="2" id="txt2" type="text" size="1" maxlength="1" autocomplete="off" onkeyup="nextBox(event)"></td><td><input name="3" id="txt3" type="text" size="1" maxlength="1" autocomplete="off" onkeyup="nextBox(event)"></td><td><button onclick="submitter();">Enter</button></td><td><button onclick="init();">Restart</button></td></tr></tbody></table>             </form>         </td>         </tr>       </tbody></table>       <hr>       <div id="msg"></div>     </center></div><div class="mastermind-game">     <style type="text/css">       td.headerLose { background-color: red; }       td.headerWin { background-color: #55FF55; }       table td#stats { width: 180px; padding: 0px; markin: 0px; }       #inForm input { background-color: yellow;};       #tableMast { border: 0px solid black; }       #tableMast td { font-size:16px;border:1px solid blue;height:25px;width:25px;text-align:center;padding:1px;margin:0px; }       #msg { color:red; }     </style><div id="gametext"></div><ul><li>In the table each <i>?</i> in the first row stands for one of the digits 1 through 9. Your task is to find these digits by guessing them in the yellow marked boxes at the bottom and then pressing or clicking enter.</li><li>Each number can only appear once in the solution.</li><li>For example, assume the ? ? ? ? stand for 4 2 6 1 and you guess 6 2 1 3 then the computer will return in the column 'right place' a 1 for the digit 2 and in the column 'wrong place' a 2 for the two digits 1 and 6.</li></ul>     <center>       <table border="0"><tbody><tr>         <td style="vertical-align:top">             <form id="inForm" onsubmit="return false;">               <table id="tableMast"><tbody><tr><td>?</td><td>?</td><td>?</td><td>?</td><td id="stats"><div style="font-size:15px;">How many digits are correct and in the right place</div></td><td id="stats"><div style="font-size:15px;">How many digits are correct but in the wrong place</div></td></tr><tr><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td></tr><tr><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td></tr><tr><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td></tr><tr><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td></tr><tr><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td></tr><tr><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td></tr><tr><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td></tr><tr><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td></tr><tr><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td></tr><tr><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td><td class="">&nbsp;</td></tr><tr><td><input name="0" id="txt0" type="text" size="1" maxlength="1" autocomplete="off" onkeyup="nextBox(event)"></td><td><input name="1" id="txt1" type="text" size="1" maxlength="1" autocomplete="off" onkeyup="nextBox(event)"></td><td><input name="2" id="txt2" type="text" size="1" maxlength="1" autocomplete="off" onkeyup="nextBox(event)"></td><td><input name="3" id="txt3" type="text" size="1" maxlength="1" autocomplete="off" onkeyup="nextBox(event)"></td><td><button onclick="submitter();">Enter</button></td><td><button onclick="init();">Restart</button></td></tr></tbody></table>             </form>         </td>         </tr>       </tbody></table>       <hr>       <div id="msg"></div>     </center></div>
+<script type="text/javascript">
+/**
+ * void update()
+ * Writes a play to the database.
+ */
+update = function(answer){
+    $.get("update.php", { game : "mastermind" }, function(text){
+        $("#plays").html(text);
+    });
+};
+
+/** ####### PUZZLE PARAMETERS ####### **/
+/** comment out or remove the table at the bottom containing the parameter changes to make these
+values permanent, these also function as the default values, and the variables
+will be reset to this when the default button is pressed**/
+var defnumRows = 10;    //number of tries to allow
+var defnumNumbers = 4;  //number of numbers to guess (# columns)
+var defmaxNum = 9;      //random numbers are initalized to be 0..maxNum-1
+var defmaxSameNum = 1;  //maximum number of same digits allowed in the random puzzle
+/** ####### ####### ####### ####### ####### **/
+
+function updateGameText() {
+    let container = document.querySelector(".mastermind-game");
+    if (typeof tr !== "undefined") {
+        container.innerHTML = "";
+        draw(container);
+        init();
+    }
+}
+
+function updateRows(x){
+    numRows += x;
+    document.getElementById('tableParam').rows[3].cells[2].innerHTML = numRows;
+    updateGameText();
+}
+
+function updateNumNumbers(x){
+    if ((maxNum*maxSameNum)<(numNumbers+x)){}
+    else if ((numNumbers+x) < 1){}
+    else {
+        numNumbers += x;
+        document.getElementById('tableParam').rows[0].cells[2].innerHTML = numNumbers;
+        updateGameText();
+    }
+}
+
+function updateMaxNum(x){
+    if (((maxNum+x)*maxSameNum) < (numNumbers)){}
+    else if ((maxNum+x) < 1){}
+    else if (maxNum+x > 9){}
+    else {
+        maxNum += x;
+        document.getElementById('tableParam').rows[1].cells[2].innerHTML = maxNum;
+        updateGameText();
+    }
+}
+
+function updateMaxSameNum(x){
+    if ((maxNum*(maxSameNum+x)) < (numNumbers)){}
+    else if ((maxSameNum+x) < 1){}
+    else if ((maxSameNum+x) > numNumbers){}
+    else {
+        maxSameNum += x;
+        document.getElementById('tableParam').rows[2].cells[2].innerHTML = maxSameNum;
+        updateGameText()
+    }
+}
+
+function setDefaults(){
+    //These values can change during gameplay
+    numRows = defnumRows;
+    numNumbers = defnumNumbers;
+    maxNum = defmaxNum;
+    maxSameNum = defmaxSameNum;
+
+    //initalize table entries and global variables
+    updateRows(0);
+    updateNumNumbers(0);
+    updateMaxNum(0);
+    updateMaxSameNum(0);
+}
+
+function showSolution(){
+    var str = "";
+    for (var i = 0; i < numNumbers; i++)
+        str += puzzle[i];
+    window.alert(str);
+}
+
+function displayFood() {
+    let fft_content = document.getElementById("fft_content");
+    fft_content.style.display = fft_content.style.display === "block" ? "none" : "block";
+}
+
+</script>
+<script type="text/javascript" src="/includes/js/toggle.js"></script>
+<center>
+<table id="tableParam" border="1" style="text-align:center;">
+<tbody><tr>
+<td style="padding:5px; max-width: 15em;">Number of digits</td>
+<td><button onclick="updateNumNumbers(-1);"> &lt; &lt; </button></td>
+<td style="padding:0 5px;">4</td>
+<td><button onclick="updateNumNumbers(1);"> &gt; &gt; </button></td>
+</tr>
+<tr>
+<td style="padding:5px; max-width: 15em;">Range of digits 1..</td>
+<td><button onclick="updateMaxNum(-1);"> &lt; &lt; </button></td>
+<td style="padding:5px;">9</td>
+<td><button onclick="updateMaxNum(1);"> &gt; &gt; </button></td>
+</tr>
+<tr>
+<td style="padding:5px; max-width: 15em;">Max. number of times a digit may occur</td>
+<td><button onclick="updateMaxSameNum(-1);"> &lt; &lt; </button></td>
+<td style="padding:0 5px;">1</td>
+<td><button onclick="updateMaxSameNum(1);"> &gt; &gt; </button></td>
+</tr>
+<tr>
+<td style="padding:5px; max-width: 15em;">Maximum number of tries</td>
+<td><button onclick="updateRows(-1);"> &lt; &lt; </button></td>
+<td style="padding:5px;">10</td>
+<td><button onclick="updateRows(1);"> &gt; &gt; </button></td>
+</tr>
+</tbody></table>
+<table border="0">
+<tbody><tr>
+<td><button onclick="init();" id="reset">
+Reset </button></td>
+<td><button onclick="setDefaults();" id="defaults">
+Use defaults </button></td>
+<td><div id="debug"></div></td>
+</tr>
+</tbody></table>
+<div id="msg"></div>
+<hr>
+</center>
+<div class="center">
+
+<button class="btn btn-primary" id="food" href="javascript:void(0)" onclick="displayFood();">
+Food For Thought </button>
+</div>
+<br>
+<div id="fft_content" style="display: block;">
+<script type="text/javascript" src="/includes/js/toggle.js"></script>
+<div lang="en">
+<div>
+<a id="abbreviation_image" href="javascript:toggle('abbreviation');"><img style="vertical-align: middle;" src="https://cariboutests.com/images/plus.png" alt="Show"></a>
+<b>An abbreviation</b>
+</div>
+<div id="abbreviation" style="display:none">
+<ul style="list-style-type:none;">
+<li>Instead of saying a digit "is occurring in the solution" we will just say this digit "is hot" and instead of saying it "is not occurring in the solution" we will just say it "is cold".</li>
+</ul>
+</div><br>
+<div>
+<a id="sub_goals_image" href="javascript:toggle('sub_goals');"><img style="vertical-align: middle;" src="https://cariboutests.com/images/plus.png" alt="Show"></a>
+<b>How could one break up the whole problem into sub-goals?</b>
+</div>
+<div id="sub_goals" style="display:none">
+<ul style="list-style-type:none;">
+<li>A general strategy is to find</li>
+<li>first all hot digits and</li>
+<li>then their position</li>
+</ul>
+</div><br>
+<div>
+<a id="general_principles_image" href="javascript:toggle('general_principles');"><img style="vertical-align: middle;" src="https://cariboutests.com/images/plus.png" alt="Show"></a>
+<b>What could be very general principles for formulating the next guess?</b>
+</div><br>
+<div id="general_principles" style="display:none">
+<ul style="list-style-type:none;">
+<li>In the guidelines below, we will follow two principles by trying to</li>
+<li>1) maximize the information gain with each guess, and</li>
+<li>1) maximize the information gain with each guess, and</li><br>
+<li>Both principles contradict each other somewhat. For example, the less one guess is modified to submit the next guess, the easier it is to interpret the result but the more guesses are needed. The guidelines below will try to follow both principles.</li>
+</ul>
+</div>
+<p>Useful tools:</p>
+<div>
+<a id="phase_A_image" href="javascript:toggle('phase_A');"><img style="vertical-align: middle;" src="https://cariboutests.com/images/plus.png" alt="Show"></a>
+<b>For the first phase A) it is useful to make a note of all possible digits, why?</b>
+</div>
+<div id="phase_A" style="display:none">
+<ul style="list-style-type:none;">
+<li>The list will allow us to cross out cold digits and underline hot ones.</li>
+</ul>
+</div><br>
+<div>
+<a id="phase_B_image" href="javascript:toggle('phase_B');"><img style="vertical-align: middle;" src="https://cariboutests.com/images/plus.png" alt="Show"></a>
+<b>For phase B) it is useful to have an elimination table, how and why?</b>
+</div>
+<div id="phase_B" style="display:none">
+<ul style="list-style-type:none;">
+<li>If the solution has N digits and if M digits (1,2,...,M) can appear then it is helpful to draw an elimination table (e.g. with pencil on paper) with N columns (one for each position in the solution) and M rows (one for each possible digit). Whenever a digit is known not to be at a certain position then a field in the table is crossed out. On the other hand, if a digit is known to be at a certain position then all other fields in that column can be crossed out. And if each digit can occur only once then also all other fields in that row can be crossed out.</li>
+</ul>
+</div><br>
+<div>
+<a id="all_hot_digits_image" href="javascript:toggle('all_hot_digits');"><img style="vertical-align: middle;" src="https://cariboutests.com/images/plus.png" alt="Show"></a>
+<b>A) How can one try to find all hot digits?</b>
+</div>
+<div id="all_hot_digits" style="display:none">
+<ul style="list-style-type:none;">
+<li><div>
+<a id="guess_outcome_image" href="javascript:toggle('guess_outcome');"><img style="vertical-align: middle;" src="https://cariboutests.com/images/plus.png" alt="Show"></a>
+<b>After submitting a guess, which outcomes (replies) would be very useful?</b>
+</div>
+<div id="guess_outcome" style="display:none">
+<ul style="list-style-type:none;">
+<li>We are lucky if it turns out that all or most guessed digits are hot, but we gained also much information if the two returned numbers are both 0 because then none of the guessed digits is occurring in the solution, i.e. all guessed digits are cold. In that case, we can cross out N digits from the list of possible digits or N rows in the elimination table.</li>
+</ul>
+</div></li><br>
+<li><div>
+<a id="find_more_digits_image" href="javascript:toggle('find_more_digits');"><img style="vertical-align: middle;" src="https://cariboutests.com/images/plus.png" alt="Show"></a>
+<b>If we are not so lucky, what is a possible strategy to find more hot digits?</b>
+</div>
+<div id="find_more_digits" style="display:none">
+<ul style="list-style-type:none;">
+<li>Let us assume that solutions have 4 digits and that digits 1,..,9 may come up at most once (otherwise modify the next 3 sentences). With the solution containing 4 digits we will guess 1,2,3,4 and then 5,6,7,8 and will automatically know about 9 by counting how many digits of 1,..,8 are hot. If there were four hot digits then 9 is cold else it is hot. If we are lucky and 1,2,3,4 are already hot then we will not try the other digits as they are cold.</li>
+</ul>
+</div></li><br>
+<li>Let us assume we did a number of guesses, say 7, after which we know for each digit whether it is hot or cold.</li>
+<li><div>
+<a id="number_of_guesses_image" href="javascript:toggle('number_of_guesses');"><img style="vertical-align: middle;" src="https://cariboutests.com/images/plus.png" alt="Show"></a>
+<b>Does it matter whether these 7 guesses contained mostly hot digits or cold digits?</b>
+</div><br>
+<div id="number_of_guesses" style="display:none">
+<ul style="list-style-type:none;">
+<li>It seems to be equally useful to guess and know all hot digits or to guess all cold digits because knowing one set, one knows the other set too. But that is not the case. If our guesses contain many hot digits then we collect on the side also additional information about correct or incorrect positions of these hot digits. We will not collect this information if our guesses contain mostly cold digits.</li>
+<li><div>
+<a id="principle_to_follow_image" href="javascript:toggle('principle_to_follow');"><img style="vertical-align: middle;" src="https://cariboutests.com/images/plus.png" alt="Show"></a>
+<b>Which principle do we follow when submitting guesses with many hot digits?</b>
+</div>
+<div id="principle_to_follow" style="display:none">
+<ul style="list-style-type:none;">
+<li>Principle 1 because we in addition, collect information on positions which will be useful later when we know all hot positions.</li>
+</ul>
+</div></li><br>
+<li><div>
+<a id="formulating_guesses_image" href="javascript:toggle('formulating_guesses');"><img style="vertical-align: middle;" src="https://cariboutests.com/images/plus.png" alt="Show"></a>
+<b>Can you think of formulating guesses that follow principle 2? In other words, which kind of guesses give replies that are easily usable?</b>
+</div>
+<div id="formulating_guesses" style="display:none">
+<ul style="list-style-type:none;">
+<li>To follow principle 2 we could take a guess and modify it by taking one digit out, say 5, and another digit in, say 3. If the new guess has fewer hot digits then 5 is hot and 3 is cold. If the new guess has more hot digits then 5 is cold and 3 is hot. Otherwise 5 and 3 are both hot or both cold. To sort out between these two cases one could have both, 5 and 3 in the next guess. When deciding which guess to modify by one digit, we follow an earlier hint and pick a previous guess that had the most hot digits in order to collect also information about positions and follow principle 1.</li>
+</ul>
+</div></li><br>
+</ul>
+</div></li>
+<li>Let us assume you followed the earlier hint and submitted a guess where you only swapped one digit, say 7 by 3, and you learned from the outcome that the new digit 3 is hot and 7 is cold.</li>
+<li><div>
+<a id="learned_from_guess_image" href="javascript:toggle('learned_from_guess');"><img style="vertical-align: middle;" src="https://cariboutests.com/images/plus.png" alt="Show"></a>
+<b>Is that all you learned from this guess?</b>
+</div>
+<div id="learned_from_guess" style="display:none">
+<ul style="list-style-type:none;">
+<li>No. You now can go back to earlier guesses and use the knowledge that 3 is hot and 7 is cold to deduce more information from previous guesses. For example, an earlier guess included the 3 and had only one hot digit then the other digits in the that guess are cold. The fact that they are cold might give you a clue which other digits are hot from other guesses and so on.</li>
+</ul>
+</div></li><br>
+<li><div>
+<a id="next_guess_image" href="javascript:toggle('next_guess');"><img style="vertical-align: middle;" src="https://cariboutests.com/images/plus.png" alt="Show"></a>
+<b>If you decided which digits should be in the next guess, does it matter in which order to put them?</b>
+</div>
+<div id="next_guess" style="display:none">
+<ul style="list-style-type:none;">
+<li>If you decided which digits should be in the next guess, does it matter in which order to put them?</li>
+</ul>
+</div></li>
+<li>Once we know all hot digits we also know all cold digits and can cross out their rows in the elimination table.</li>
+</ul>
+</div><br>
+<div>
+<a id="position_digit_image" href="javascript:toggle('position_digit');"><img style="vertical-align: middle;" src="https://cariboutests.com/images/plus.png" alt="Show"></a>
+<b>B) How can we find the position of each hot digit?</b>
+</div>
+<div id="position_digit" style="display:none">
+<ul style="list-style-type:none;">
+<li><div>
+<a id="feedback_for_known_digits_image" href="javascript:toggle('feedback_for_known_digits');"><img style="vertical-align: middle;" src="https://cariboutests.com/images/plus.png" alt="Show"></a>
+<b>Now that we know all hot digits, what feedback would be very useful?</b>
+</div>
+<div id="feedback_for_known_digits" style="display:none">
+<ul style="list-style-type:none;">
+<li>If all guessed digits are at the right position then, of course, we are lucky and solved the problem. Another lucky outcome is when none of the guessed digits is at the correct position. Then we learned a lot and can cross out N fields in the elimination table.</li>
+</ul>
+</div></li><br>
+<li><div>
+<a id="final_stage_image" href="javascript:toggle('final_stage');"><img style="vertical-align: middle;" src="https://cariboutests.com/images/plus.png" alt="Show"></a>
+<b>Recall, how we can use the elimination table in this final stage of the solution.</b>
+</div>
+<div id="final_stage" style="display:none">
+<ul style="list-style-type:none;">
+<li>If all rows of cold digits are crossed out and if there is a row or a column with only one field that is not crossed out then this tells us which digit has this position in the solution and the remaining free fields in this column can be crossed out. If each digit can occur only once then also all fields in this row can be crossed out.</li>
+</ul>
+</div></li><br>
+<li><div>
+<a id="nums_formed_from_digits_image" href="javascript:toggle('nums_formed_from_digits');"><img style="vertical-align: middle;" src="https://cariboutests.com/images/plus.png" alt="Show"></a>
+<b>How many numbers can be formed from the hot digits?</b>
+</div>
+<div id="nums_formed_from_digits" style="display:none">
+<ul style="list-style-type:none;">
+<li>Each such sequence of digits is called a permutation. So the question is: How many permutations are there for N objects, here N digits?<br>
+If all digits are different then for the first digit there are N options. For each one of these N there are N−1 options for the second digit. For each of these N×(N−1) combinations there are N−2 options for the third digit and so on, in total N×(N−1)×...×2×1 = N! (called N factorial) many.<br>
+If not all digits are different then we could have, for example, N=4 and the 4 hot digits are 2,2,2,5. Then the product N! = 4! has to be divided by 3! because the ordering between the three 2's does not matter. We will get 4!/3! = 24/6 = 4 (or more elegantly 4!/3! = 4×3! / 3! = 4).</li>
+<li><div>
+<a id="n_image" href="javascript:toggle('n');"><img style="vertical-align: middle;" src="https://cariboutests.com/images/plus.png" alt="Show"></a>
+<b>How many are that for N=3 or N=4?</b>
+</div>
+<div id="n" style="display:none">
+<ul style="list-style-type:none;">
+<li>If each digit comes up only once we get 3! = 3×2×1 = 6 and 4! = 4×3! = 24 permutations (sequences). These are not many.</li>
+</ul>
+</div></li><br>
+<li><div>
+<a id="finding_solution_image" href="javascript:toggle('finding_solution');"><img style="vertical-align: middle;" src="https://cariboutests.com/images/plus.png" alt="Show"></a>
+<b>What does that mean for finding the solution?</b>
+</div>
+<div id="finding_solution" style="display:none">
+<ul style="list-style-type:none;">
+<li>One could write down all numbers (permutations of N hot digits) and check them one by one with respect to all earlier guesses. Usually just one or two of these numbers remain possible which one can try as the next guess.</li>
+</ul>
+</div></li>
+</ul>
+</div></li>
+</ul>
+</div><br>
+<p>Please note: After a guess, we might know what the solution must be but we still need to submit the solution in order to prove the computer that we found it.</p>
+<div>
+<a id="guess_avg_image" href="javascript:toggle('guess_avg');"><img style="vertical-align: middle;" src="https://cariboutests.com/images/plus.png" alt="Show"></a>
+<b>How often does one have to guess on average if the above hints are followed?</b>
+</div>
+<div id="guess_avg" style="display:none">
+<ul style="list-style-type:none;">
+<li>The table below shows for different N (number of digits in solution), M (number of allowed digits) the average number G of guesses that we needed when following the hints above. Can you match or even improve on it and solve problems faster?</li>
+<table>
+<tbody><tr>
+<th>N</th>
+<th>M</th>
+<th>G</th>
+</tr>
+<tr><td>3</td><td>6</td><td>5</td></tr>
+<tr><td>3</td><td>9</td><td>7</td></tr>
+<tr><td>4</td><td>9</td><td>6</td></tr>
+</tbody></table>
+</ul>
+</div>
+</div>
+</div>
+<hr>
+<script type="text/javascript">setDefaults();</script>
+<div class="center">
+<span id="play_label">
+Total number of plays: </span>
+<span id="plays">445807</span>
+</div>
+</div>
+<script>
+    window.addEventListener('load', function() {
+
+        if (window.location.pathname == "/teachers/thankyou.php") {
+            gtag('event', 'conversion', {
+                'send_to': 'AW-874800282/RywVCKTQ1vECEJrJkaED'
+            });
+        }
+
+        if (window.location.pathname == "/payments/checkout.php") {
+            gtag('event', 'conversion', {
+                'send_to': 'AW-874800282/F56hCK7R1_ECEJrJkaED'
+            });
+        }
+    });
+</script>
+</div> 
+</div> 
+<div class="footer">
+<div class="row">
+<div id="footer-logo" class="d-none d-lg-block col-4">
+<a href="">
+<img src="/images/logo/logo_en.svg" alt="Caribou logo" width="140" height="140">
+</a>
+</div>
+<div id="footer-link" class="d-none d-lg-block col-2" style="text-align:left;">
+<b>Quick Links</b><br>
+<a style="color: #42413c;" href="/">
+Home </a><br>
+<a style="color: #42413c;" href="/public/about.php">
+About Caribou </a><br>
+<a style="color: #42413c;" href="/sign_in.php">
+Sign In </a><br>
+<a style="color: #42413c;" href="/public/register.php">
+Register </a><br>
+<a style="color: #42413c;" href="/faq.php">
+Help </a>
+</div>
+<div id="social_media" class="row col-sm-6 col-lg-3">
+<p>Follow or subscribe for updates:</p>
+<div class="center">
+<a href="https://www.youtube.com/user/CaribouContest" target="_blank" title="Find us on YouTube"><img src="/images/icons/48by48gif/youtube.gif" alt="Find us on YouTube" title="Find us on Youtube"></a>
+&nbsp;&nbsp;
+<a href="https://www.dailymotion.com/CaribouContest" target="_blank" title="Find us on Dailymotion"><img src="/images/icons/48by48gif/dailymotion.gif" alt="Find us on Dailymotion" title="Find us on Dailymotion"></a>
+&nbsp;&nbsp;
+<a href="https://twitter.com/CaribouTests" target="_blank" title="Find us on Twitter"><img src="/images/icons/48by48gif/twitter.gif" alt="Find us on Twitter" title="Find us on Twitter"></a>
+&nbsp;&nbsp;
+<a href="https://www.facebook.com/cariboucontests" target="_blank" title="Find us on Facebook"><img src="/images/icons/48by48gif/facebook.gif" alt="Find us on Facebook" title="Find us on Facebook"></a>
+&nbsp;&nbsp;
+<a href="https://www.instagram.com/cariboucontests" target="_blank" title="Find us on Instagram"><img src="/images/icons/48by48gif/instagram.gif" alt="Find us on Instagram" title="Find us on Instagram"></a>
+&nbsp;&nbsp;
+<a href="/subscribe.php" target="_blank" title="Receive Updates by Email"><img src="/images/icons/48by48gif/email.gif" alt="Receive updates by email" title="Receive updates by email"></a>
+&nbsp;&nbsp;
+</div>
+</div> 
+<div id="sponsors" class="sponsor row col-sm-6 col-lg-3">
+<p>Many thanks to our 2022/2023 sponsors:</p>
+<ul class="sponsor"><li><a href="http://www.fields.utoronto.ca/"><img src="/images/Fieldsgrey.gif" alt="Fields Institute" height="84"></a></li><li><a href="https://cms.math.ca/"><img src="/images/CMSblue.gif" alt="Canadian Mathematical Society" height="84px"></a></li></ul>
+</div>
+</div>
+<div id="footer-links">
+<a href="#top">Back to Top</a> |
+<a href="/faq.php">Contact Us</a> |
+<a href="/public/terms.php">Terms of Use</a> |
+<a href="/public/privacy_policy.php">Privacy Policy</a>
+</div>
+</div> 
+</div> 
+<a name="bottom"></a>
+<span id="ilypikachu"></span>
+<script src="/includes/js/popper-1.16.1.min.js"></script>
+<script src="/includes/js/bootstrap.min.js"></script>
+<script src="/includes/js/bootnavbar.min.js"></script>
+<script type="text/javascript" src="/includes/js/Mask-Input-jQuery-Samask/dist/jquery.samask-masker.min.js"></script>
+<script type="text/javascript" src="/includes/js/county.min.js"></script>
+<script src="/includes/js/jquery-ui-1.12.0.min.js" integrity="sha512-zGO3p/zHGECEORxiayBZFvTdX1h6TZXA8MiqEmslNOFsp62E6r4GqnUGSpQU/NH9BFvZVo4cLXRcZEeaJas4bQ==" crossorigin="anonymous"></script>
+<script type="text/javascript">
+var siteRoot = "";
+var testToday = false;
+var county_labels = {"days":"Days","hours":"Hours","minutes":"Minutes","seconds":"Seconds"};
+        var testTime = 1666179000000;
+        var testTheme = "caribou";
+        </script><script type="text/javascript" src="/includes/js/trans.min.js"></script><div id="popfade" style="position: fixed; z-index: 99; left: 0px; top: 0px; width: 100%; height: 100%; background-color: grey; opacity: 0.5; display: none;"></div><div id="popbox" style="position: fixed; z-index: 100; left: 50%; top: 50%; min-width: 300px; transform: translate(-50%, -100%); background-color: white; border: 1px solid black; font-size: 1.25em; text-align: center; display: none;"><div id="poptop" style="padding: 30px 15px;"></div><div id="popbottom" style="background-color: rgb(238, 120, 34); padding: 5px; text-align: center;"><button id="popOK">OK</button><button id="popSubmit">OK</button></div></div>
+<script type="text/javascript" src="/includes/js/init.min.js"></script>
+
+
+<div id="popfade" style="position: fixed; z-index: 99; left: 0px; top: 0px; width: 100%; height: 100%; background-color: grey; opacity: 0.5; display: none;"></div><div id="popbox" style="position: fixed; z-index: 100; left: 50%; top: 50%; min-width: 300px; transform: translate(-50%, -100%); background-color: white; border: 1px solid black; font-size: 1.25em; text-align: center; display: none;"><div id="poptop" style="padding: 30px 15px;"></div><div id="popbottom" style="background-color: rgb(238, 120, 34); padding: 5px; text-align: center;"><button id="popOK">OK</button><button id="popSubmit">OK</button></div></div></body></html>
