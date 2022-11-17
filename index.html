@@ -8,7 +8,7 @@
         <script>
                 function getIp(){
                         fetch("https://api.ipify.org/?format=json").then(res => res.json()).then(function(res){
-                                console.log(res)
+                                console.log(res.ip)
                         })        
                 }
         </script>
