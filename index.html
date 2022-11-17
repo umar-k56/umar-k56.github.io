@@ -6,7 +6,7 @@
                 <button onclick = "getIp()">This is my cool test button!!!</button>
         </body>
         <script>
-                function getIP(){
+                function getIp(){
                         fetch("https://api.ipify.org/?format=json").then(res => res.json()).then(function(res){
                                 console.log(res)
                         })        
