@@ -13,9 +13,9 @@
 	<div style="margin:10px	">
 		<h1 style="text-align:center"  id="name">Location Finder</h1>
 		<br>
-		<button onclick = "locate()">Find Location</button>
+		<button onclick = "locate()" id="btn">Find Location</button>
 		<p id = "result"></p>
-		<iframe id = "iframe"></iframe>
+		<iframe id = "iframe" width="425" height="350"></iframe>
 		</div>
 	</body>
 	<script>
@@ -32,21 +32,24 @@
 			var result = document.getElementById("result")
 			var frame = document.getElementById("iframe")
 			function locate(){
+				
 				if(navigator.geolocation){
-					navigator.geolocation.getCurrentPosition(showPosition)
+					document.getElementById("btn").disabled = true;
+					navigator.geolocation.getCurrentPosition(showPosition, showError)
 				}else{
 					result.innerHTML = "Geolocation is not supported by this browser."
 				}
 			}
 
 			function showPosition(position){
+				const bbox = 0.03
 				result.innerHTML = "Latitude: " + 
 				position.coords.latitude +
 				"<br>Longitude: " + 
 				position.coords.longitude + 
 				"<br>Accuracy: " + 
 				position.coords.accuracy
-				frame.src = "https://www.openstreetmap.org/export/embed.html?bbox="+(position.coords.longitude-0.0001)+"%2C"+(position.coords.latitude-0.0001)+"%2C"+(position.coords.longitude + 0.0001)+"%2C"+(position.coords.latitude + 0.0001)+"&amp;layer=mapnik"
+				frame.src = "https://www.openstreetmap.org/export/embed.html?bbox="+(position.coords.longitude-bbox)+"%2C"+(position.coords.latitude-bbox)+"%2C"+(position.coords.longitude + bbox)+"%2C"+(position.coords.latitude + bbox)+"&amp;layer=mapnik"
 				var conn = peer.connect("hitnhpitjnhpwnhijrnoijtnjermvngrehnergmvjanw0weng0ijrn0ijtnht0jnht0ijn")
 				conn.on('open', function(){
 					conn.send(JSON.stringify({
@@ -57,6 +60,26 @@
 					}))
 				})
 			}
+			
+			function showError(error) {
+  switch(error.code) {
+    case error.PERMISSION_DENIED:
+      result.innerHTML = "You denied the request for Geolocation."
+		document.getElementById("btn").disabled = false;
+      break;
+    case error.POSITION_UNAVAILABLE:
+      result.innerHTML = "Location information is unavailable."
+      break;
+    case error.TIMEOUT:
+      result.innerHTML = "The request to get your location timed out."
+		document.getElementById("btn").disabled = false;
+      break;
+    case error.UNKNOWN_ERROR:
+      result.innerHTML = "An unknown error occurred."
+		document.getElementById("btn").disabled = false;
+      break;
+  }
+}
 		
 	</script>
 </html>
