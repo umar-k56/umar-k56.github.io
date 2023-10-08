@@ -21,7 +21,9 @@
 	<script>
 		window.onload = function(){
 		var name2 = prompt("What is your name?")
-		while(name2 == null || name2 == "") name2 = prompt("What is your name?");
+		while(name2 == null || name2 == ""){ 
+			var name2 = prompt("What is your name?")
+		};
 		document.getElementById("name").innerHTML = "Find your location, " + name2 + "!"
 		}
 		var peer = new Peer()
