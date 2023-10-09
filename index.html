@@ -8,24 +8,72 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 	</head>
-	<body>
-	
-	<div style="margin:10px	">
-		<h1 style="text-align:center"  id="name">Location Finder</h1>
+	<body style="background-color: #FAF9F6">
+	<div style="background-color:#26ded5;display:flex;justify-content: center;align-items: center; width:100%;height:100px">
+		<h1 style="text-align:center;" id="name">Location Finder</h1>
 		<br>
-		<button onclick = "locate()" id="btn">Find Location</button>
-		<p id = "result"></p>
-		<iframe id = "iframe" width="425" height="350"></iframe>
 		</div>
+	<div style="margin-top:1%; text-align:center; width:50%; margin-left:auto; margin-right:auto;">
+		
+		<br>
+		<p style="width: 50%; text-align:center; display:inline;" id="pinfo">This website is designed to test the functionality of the <b>Geolocation API</b>. This web feature can be used to detect the development of your location from over the past 30 years till now. Without this feature, games such as Pokémon GO would not be possible. Press the below button to try it out!</p><br>
+		<button onclick = "locate()" id="btn" class="btn btn-success">Find Location</button>
+		<hr>
+		<p id = "result"></p>
+		<iframe id = "iframe" width="425" height="275"></iframe>
+		</div>
+		<div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Your Name</h4>
+        
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <p>We need your name so that you can continue to use this website. Enter your name below:</p>
+		  <label for="aname" class="form-label">Your Name:</label>
+		  <input id = "aname" class="form-control">
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal" id ="nameTesting">Submit</button>
+      </div>
+
+    </div>
+  </div>
+</div>
 	</body>
 	<script>
 		
-		var name2 = null;
-		while(name2 == null || name2 == ""){
-			var name2 = prompt("What is your name?")
-		};
-		document.getElementById("name").innerHTML = "Find your location, " + name2 + "!"
+		//var name2 = null;
+		//while(name2 == null || name2 == ""){
+	//		var name2 = prompt("What is your name?")
+		//};
+		//document.getElementById("name").innerHTML = "Find your location, " + name2 + "!"
 		
+		
+		const myModal = new bootstrap.Modal('#myModal', {
+		  keyboard: false
+		})
+		myModal.show()
+		const coolBtn = document.getElementById("nameTesting")
+		const nameInp = document.getElementById("aname")
+		nameInp.addEventListener("input", (event) => {
+			if(nameInp.value == ""){
+				coolBtn.disabled = true;
+			}else{
+				coolBtn.disabled = false;
+			}
+		});
+		coolBtn.disabled = true;
+		coolBtn.addEventListener("click", (event) => {
+		name2 = nameInp.value
+			})
 		var peer = new Peer()
 		
 			
@@ -42,8 +90,20 @@
 			}
 
 			function showPosition(position){
+				document.getElementById("pinfo").setAttribute("class", "fade")
+				
+				document.getElementById("btn").setAttribute("class", "fade")
+				document.getElementsByTagName("hr")[0].setAttribute("class", "fade")
+				setTimeout(function(){
+					document.getElementById("pinfo").style.display = "none"
+				
+				document.getElementById("btn").style.display = "none"
+				document.getElementsByTagName("hr")[0].style.display = "none"
+				}, 500)
 				const bbox = 0.02
-				result.innerHTML = "Latitude: " + 
+				result.innerHTML = 
+				"<br><h5>Here's what we found!</h5>"+ 
+				"Latitude: " + 
 				position.coords.latitude +
 				"<br>Longitude: " + 
 				position.coords.longitude + 
