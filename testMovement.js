@@ -96,6 +96,8 @@ class Drive{
 		this.scene = obj.scene;
 		this.start = obj.start;
 		this.dest = obj.dest;
+		this.domElem = obj.domElem;
+		this.setFakeDist = 0;
 	}
 
 	startJourney(){
@@ -120,16 +122,26 @@ class Drive{
 		this.journeyStage = 1;
 		this.propulsion = 0;
 		this.journeyDistance = 0;
+		
 	}
 
 	keepGoing(){
+		const dist = this.start.position.distanceTo(this.dest.position);
+		const fakeDist = this.start.position.distanceTo(this.destVec);
 		if(this.journeyStage == 1){
-			if(this.start.position.distanceTo(this.dest.position) <= this.dest.geometry.parameters.radius*8+3){
+			this.domElem.innerHTML = "Orienting...";
+			if(dist <= this.dest.geometry.parameters.radius){
+				this.journeyStage = 4;
+				this.domElem.innerHTML = "";
+				return
+			}else
+			if(dist <= this.dest.geometry.parameters.radius*8+3){
 				this.journeyStage = 3;
 				return;
-			}
+			} 
 			if(!this.start.quaternion.equals(this.#targetQuaternion)){
 					this.start.quaternion.rotateTowards(this.#targetQuaternion, 0.01)
+					
 			}else{
 					this.#targetQuaternion.identity();
 					this.journeyDistance = this.start.position.distanceTo(this.destVec);
@@ -137,9 +149,10 @@ class Drive{
 			}
 		}
 		if(this.journeyStage == 2){
-			const direction = new this.THREE.Vector3();	
+			const direction = new this.THREE.Vector3();
 			this.start.getWorldDirection(direction);
-			if(this.start.position.distanceTo(this.destVec) > this.journeyDistance/2){
+			this.domElem.innerHTML = fakeDist.toFixed(2) + " remaining...";
+			if(fakeDist > this.journeyDistance/2){
 				
 				this.propulsion += 0.01;
 			}else{
@@ -147,17 +160,21 @@ class Drive{
 					this.propulsion -= 0.01;
 				}else{
 					this.propulsion = 0;
+					this.setFakeDist = fakeDist;
 					this.journeyStage = 3;
 				}
 				//this.start.position.add(direction.multiplyScalar(this.propulsion));
 			}
 			this.start.position.add(direction.multiplyScalar(this.propulsion));
 		}
+
 		if(this.journeyStage == 3){
+			this.domElem.innerHTML = "Orienting...";
 			if(!this.start.quaternion.equals(this.#realTargetQuaternion)){
 					this.start.quaternion.rotateTowards(this.#realTargetQuaternion, 0.01)
 			}else{
 				this.journeyStage = 4;
+				this.domElem.innerHTML = "";
 			}
 		}
 	}
@@ -172,8 +189,8 @@ const fetchUrl = "https://corsproxy.io/?https://ssd.jpl.nasa.gov/api/horizons.ap
 				MAKE_EPHEM: 'YES',
 				EPHEM_TYPE: 'VECTORS',
 				CENTER: '@sun',
-				START_TIME: '2024-08-30',
-				STOP_TIME: '2024-08-31',
+				START_TIME: '2024-10-5',
+				STOP_TIME: '2024-10-6',
 				STEP_SIZE: '1d',
 				VEC_TABLE: '1'
 			}
