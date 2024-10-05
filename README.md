@@ -1,1 +1,1 @@
-**This is a space project by Umar, Kirishh, and Anuj.**
+**This is a NASA SpaceApps project by Umar, Kirishh, and Anuj.**
