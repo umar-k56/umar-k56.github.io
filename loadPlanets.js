@@ -29,7 +29,7 @@ function loadPlanets(THREE, scene){
 		for(let i = 1; i <= 8; i++){
 			promises.push(getCoords(i+'99'))
 		}
-		const distanceMultiplier = 0.000001;
+		const distanceMultiplier = 0.000005;
 		const radiusMultiplier = 0.0001;
 		const planets = [];
 		//console.log(promises);
