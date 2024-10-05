@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			#canv{
+				min-width: 50dvh;
+				height: 50dvh;
+				border: 2px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id = "canv">
+		
+		</canvas>
+	</body>
+	<script>
+		const fetchUrl = "https://corsproxy.io/?https://ssd.jpl.nasa.gov/api/horizons.api?"
+		const canvas = document.getElementById("canv");
+		const ctx = canvas.getContext('2d');
+		ctx.translate(canvas.width/2, canvas.height/2)
+//const fetchUrl = "https://corsproxy.io/?https://ssd.jpl.nasa.gov/api/horizons.api?"
+		async function getCoords(spaceObj){
+			const paramsObj = {
+				format: 'text',
+				COMMAND: spaceObj,
+				OBJ_DATA: 'YES',
+				MAKE_EPHEM: 'YES',
+				EPHEM_TYPE: 'VECTORS',
+				CENTER: '@sun',
+				START_TIME: '2024-08-30',
+				STOP_TIME: '2024-08-31',
+				STEP_SIZE: '1d',
+				VEC_TABLE: '1'
+			}
+			const searchParams = new URLSearchParams(paramsObj);
+			let text = await fetch(fetchUrl + searchParams.toString());
+			let res = await text.text();
+			if(!res.toLowerCase().includes('radius') || res.toLowerCase().includes('irregular saturnian satellite')){
+				return 'error';
+			}
+			console.log(res);
+			res = res.split("\n");
+			
+			let coords = res[res.indexOf("$$SOE") + 2];
+			const impLine = res.find(e => e.toLowerCase().includes(spaceObj.endsWith('99') ? "vol. mean radius" : "radius") || e.toLowerCase().includes("mean radius"))
+
+			let reworked = impLine.split("= ")[1].trim();
+			reworked = reworked.split(" ")[reworked.includes("<") ? 1 : 0].split("+")[0].replace("~", "");
+
+			reworked = reworked.replace("<", "").trim();
+
+			const radius = parseFloat(reworked);
+			
+			if(isNaN(radius)){
+				return 'error';
+			}
+			coords = coords.split(/[XYZ]/);
+			coords.splice(0, 1);
+			coords = coords.map(cord => {
+				return parseFloat(cord.replaceAll("=", "").trim());
+			})
+
+			let titleLine = res[4].split("  ").filter(e => e != '')[1].trim();
+			console.log(titleLine)
+			return {
+				x: coords[0],
+				y: coords[1],
+				z: coords[2],
+				radius: radius,
+				obj: spaceObj,
+				name: titleLine
+			}
+				
+		}
+
+		//getCoords('509').then(res => console.log(res))
+		// let promises = [];
+		// for(let i = 1; i <= 8; i++){
+		// 	promises.push(getCoords(i+'99'))
+		// }
+		// const divider = 40000000;
+		// console.log(promises);
+		// Promise.all(promises).then(coords => {
+		// 	for (const cord of coords){
+		// 		ctx.beginPath();
+		// 		//ctx.ellipse(cord.x/divider, cord.y/divider, cord.radius/d, cord.radius/(/), 0, 0, Math.PI*2);
+		// 		ctx.fill();
+		// 	}
+		// })
+
+		const startX = -100;
+		const startY = 10;
+		const circleX = -50;
+		const circleY = -30;
+		const radius = 10;
+		ctx.beginPath();
+		ctx.ellipse(circleX,circleY,  radius, radius, 0, 0, Math.PI*2);
+		ctx.stroke();
+		ctx.beginPath();
+		ctx.moveTo(startX, startY);
+		ctx.lineTo(circleX, circleY);
+		ctx.lineWidth = 1;
+		ctx.stroke();
+		
+		const rot = Math.atan2(circleY - startY, circleX - startX) + Math.PI;
+		//alert(rot);
+		
+		ctx.beginPath();
+		ctx.ellipse(Math.cos(rot)*radius + circleX, Math.sin(rot)*radius + circleY,  3, 3, 0, 0, Math.PI*2);
+		ctx.stroke();
+	</script>
+</html>
