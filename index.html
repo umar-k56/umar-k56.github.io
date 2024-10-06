@@ -159,7 +159,7 @@
 			spaceship.scale.x = 0.05;
 			spaceship.scale.y = 0.05;
 			spaceship.scale.z = 0.05;
-			
+			spaceship.position.z = -150;
 			renderer.render( scene, camera );
 			renderer.setAnimationLoop( animate );
 		
@@ -184,6 +184,9 @@
 			for(const planet of System.getPlanets()){
 				planet.update();
 				planet.applyGravity(spaceship);
+				if (spaceship.position.distanceTo(planet.planetObj.position) < planet.planetObj.geometry.parameters.radius){
+					forwardSpeed = 0;
+				}
 			}
 			
 			if(drive == undefined || (drive.journeyStage != 1 && drive.journeyStage != 2 && drive.journeyStage != 3 && drive.journeyStage != 5)){
@@ -282,7 +285,7 @@
 			ctx2d.clearRect(0, 0, width, height);
 			ctx.save();
 			ctx.translate(canvas.width/2, canvas.height/2);
-			const SCALE = 2;
+			const SCALE = 0.1;
 			ctx.scale(SCALE, SCALE);
 
 			ctx.rotate(spaceship.rotation.y+Math.PI);
@@ -290,7 +293,7 @@
 			for (const planet of planets){
 				ctx.beginPath();
 				ctx.fillStyle = "#FFFFFF";
-				ctx.ellipse(planet.position.x-spaceship.position.x, planet.position.z-spaceship.position.z, planet.geometry.parameters.radius, planet.geometry.parameters.radius, 0, 0, Math.PI * 2);
+				ctx.ellipse((planet.position.x-spaceship.position.x), (planet.position.z-spaceship.position.z), planet.geometry.parameters.radius, planet.geometry.parameters.radius, 0, 0, Math.PI * 2);
 				ctx.fill();
 
 		
@@ -308,7 +311,7 @@
 					direction.copy(planet.position);
 					direction.y += radius*1.5;
 					const coords = projectVec(direction);
-					if(coords.shouldShow && distance < radius*1000){
+					if(coords.shouldShow && distance < radius*2000){
 					ctx2d.beginPath();
 					 ctx2d.font = `${THREE.MathUtils.clamp(radius*5, 10, 20)}px Helvetica`;
 					 ctx2d.textAlign = "center";
@@ -349,10 +352,16 @@
 			// calculate objects intersecting the picking ray
 			const intersects = raycaster.intersectObjects( scene.children );
 		
-			if(intersects.length > 0){
+			if(intersects.length == 1){
+				//console.log(intersects[0].object, spaceship.children[0].children[0])
+				if(intersects[0].object != spaceship.children[0].children[0]){
 				if(intersectedObj != intersects[0].object){
+
+					
+					
 					intersectedObj = intersects[0].object;
 					intersectedColor = intersectedObj.material.color.getHex();
+				}
 				}
 			}else{
 				intersectedObj?.material.color.set(intersectedColor);
