@@ -8,8 +8,3 @@
 
 - Can see planets
 
-## Contact
-
-For inquiries, please contact:
-
-- Email: amishr1229@gmail.com
