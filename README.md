@@ -1,4 +1,4 @@
-# Project Title
+# The Celestial Navigator
 
 ## Description
 
