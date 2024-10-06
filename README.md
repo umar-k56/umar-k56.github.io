@@ -13,4 +13,4 @@
 For inquiries, please contact:
 
 - Email: amishr1229@gmail.com
-- Whatsapp: [@amishr1229](+1(647) 303-4041)
+- Whatsapp: +1(647) 303-4041
