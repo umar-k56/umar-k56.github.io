@@ -69,11 +69,17 @@
 		const height= window.innerHeight;
 		const camera = new THREE.PerspectiveCamera( 75, (width) / (height), 0.1, 2000 );
 		const renderer = new THREE.WebGLRenderer();
+		
 		const input = document.getElementById('objectInput');
 		const datalist = document.getElementById('spaceObjects');
 		const driveBtn = document.getElementById('driveBtn');
 		const testData = document.getElementById('testData');
-		const light = new THREE.AmbientLight( 0x404040 );
+		const light = new THREE.PointLight( 0xFFFFFF );
+		light.position.x = 0
+		light.position.y = 0
+		light.position.z = 0
+		const light2 = new THREE.HemisphereLight( 0xffffff, 0xffffff, 0.5 );
+		scene.add( light2 );
 		const main = document.getElementById('main');
 		const canv2d = document.getElementById('canv2d');
 		const ctx2d = canv2d.getContext('2d');
@@ -89,7 +95,7 @@
 		canv2d.before( renderer.domElement );
 		scene.add( light );
 		
-		light.position.z = 5;
+		
 		renderer.render( scene, camera );
 
 		// const backgroundTexture = new THREE.TextureLoader().load("/textures/background.jpg");
@@ -133,31 +139,36 @@
 		let controlObj = controller.controlObj;
 
 
-		loadPlanets(THREE, scene);
+		
 
 
 		const geometry = new THREE.BoxGeometry( 0.5,0.25, 0.5);
-		const material = new THREE.MeshBasicMaterial( { color: 0xff0000 } );
+		const material = new THREE.MeshPhongMaterial( { color: 0xff0000 } );
 		const loader = new GLTFLoader();
-		let spaceship = new THREE.Mesh(geometry, material);
-		// loader.load("/textures/Spaceship.gltf", function(gltfObj){
-		// 	scene.add(gltfObj.scene);
-		// 	console.log(gltfObj);
-		// 	spaceship = gltfObj.scene.children[0];
-		// 	spaceship.rotation.reorder("YXZ");
-		// 	camera.rotation.reorder("YXZ");
-		// 	spaceship.scale.x = 0.15;
-		// 	spaceship.scale.y = 0.15;
-		// 	spaceship.scale.z = 0.15;
-		// 	renderer.render( scene, camera );
-		// 	renderer.setAnimationLoop( animate );
-		// })
+		//let spaceship = new THREE.Mesh(geometry, material);
+		loader.load("/textures/Magnificent Kup (3).glb", function(gltfObj){
+			scene.add(gltfObj.scene);
+			console.log(gltfObj);
+			let spaceship = gltfObj.scene;//new THREE.Mesh(geometry, material);
+			let rocketShip = gltfObj.scene;
+			scene.add(rocketShip);
+			
+			spaceship.rotation.reorder("YXZ");
+			camera.rotation.reorder("YXZ");
+			
+			spaceship.scale.x = 0.05;
+			spaceship.scale.y = 0.05;
+			spaceship.scale.z = 0.05;
+			
+			renderer.render( scene, camera );
+			renderer.setAnimationLoop( animate );
+		
 		spaceship.rotation.reorder("YXZ");
 		camera.rotation.reorder("YXZ");
 		scene.add(spaceship);
 			
 		renderer.setAnimationLoop( animate );
-
+		loadPlanets(THREE, scene);
 
 		let forwardSpeed = 0;
 		const xAxis = new THREE.Vector3(1, 0, 0);
@@ -191,15 +202,15 @@
 			let scaled = direction.multiplyScalar(forwardSpeed);
 			spaceship.position.add(scaled);
 			forwardSpeed += forwardSpeed > 0 ? -0.001 : 0; 
-			let scaled2 = directionClone.multiplyScalar(-2 + forwardSpeed);
+			let scaled2 = directionClone.multiplyScalar(-6 + forwardSpeed);
 			let result = position.add(scaled2)//.add(new THREE.Vector3(0, 0.5, 0));
 			
 			camera.position.copy(result);
 			
 			camera.rotation.copy(spaceship.rotation);
 			camera.rotateY(Math.PI);
-			camera.translateY(0.5);
-
+			camera.translateY(4);
+			
 
 
 			if(planetsLoaded){
@@ -208,7 +219,7 @@
 				runMap();
 	
 			}
-
+			
 			showPlanetData();
 			
 			drive?.keepGoing?.();
@@ -229,7 +240,7 @@
 		})
 		document.addEventListener('click', () => {
 			if(intersectedObj){
-				alert(intersectedObj.userData.planetInfo);
+				alert(intersectedObj.userData.planetName);
 			}
 		})
 		input.addEventListener('change', (e) => {
@@ -367,7 +378,7 @@
 				spaceship.rotateOnAxis(xAxis, 0.01);
 			}
 			if(controlObj.up){
-				if(forwardSpeed < 50){
+				if(forwardSpeed < 100){
 					forwardSpeed += 0.01;
 				}
 			}
@@ -379,7 +390,7 @@
 				}
 			}
 		}
-
+		})
 		
 	</script>
 </html>
