@@ -29,6 +29,7 @@ function loadPlanets(THREE, scene){
 		for(let i = 1; i <= 8; i++){
 			promises.push(getCoords(i+'99'))
 		}
+		
 		const distanceMultiplier = 0.000005;
 		const radiusMultiplier = 0.0001;
 		const planets = [];
@@ -113,8 +114,47 @@ function loadPlanets(THREE, scene){
 					moon.draw();
 					System.addPlanet(moon);
 				}
-				const event = new CustomEvent("planetsLoaded");
-				document.dispatchEvent(event);
+
+				fetch("https://api.nasa.gov/neo/rest/v1/feed?start_date=2024-10-06&end_date=2024-10-07&api_key=DEMO_KEY").then(res => res.json()).then(res => {
+				
+				    let neos = res.near_earth_objects['2024-10-06'];
+				    let promises = []
+				    for(const neo of neos){
+				        promises.push(getCoords(`%27DES=${neo.id}%27`, true))
+				    }
+					 
+				    Promise.all(promises).then(results => {
+					 		let index = 0;
+							
+					 		for (let cord of results){
+									let currNeo = neos[index]
+									console.log(cord)
+							 		const neo = new Planet({
+										THREE: THREE,
+										scene: scene,
+										x: cord.x*distanceMultiplier,
+										y: cord.z*distanceMultiplier,
+										z: cord.y*distanceMultiplier,
+										radius: cord.radius*radiusMultiplier*0.5,
+										neoData: `Name: ${currNeo.name}\nId: ${currNeo.id}\nIs Hazardous: ${currNeo.is_potentially_hazardous_asteroid}\nRelative Velocity: ${parseFloat(currNeo.close_approach_data[0].relative_velocity.kilometers_per_hour).toFixed(2)} kph`,
+								updateFunc(obj){
+								
+								},
+								gravity: 5000,
+								color: 0xffffff,
+								planetName: cord.obj,
+								planetInfo: currNeo.name
+									})
+									console.log(neo)
+									neo.draw()
+									System.addPlanet(neo)
+								index += 1;
+							}
+				        const event = new CustomEvent("planetsLoaded");
+						document.dispatchEvent(event);
+				    })
+				});
+				
 			
 			})
 		})
