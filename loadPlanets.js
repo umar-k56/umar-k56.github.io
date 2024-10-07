@@ -34,7 +34,16 @@ function loadPlanets(THREE, scene){
 		const radiusMultiplier = 0.0001;
 		const planets = [];
 		//console.log(promises);
-
+		let today = new Date()
+		let tomorrow = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+		function join(date, options, separator) {
+		   function format(option) {
+		      let formatter = new Intl.DateTimeFormat('en', option);
+		      return formatter.format(date);
+		   }
+		   return options.map(format).join(separator);
+		}
+		let options = [{year: 'numeric'}, {month: '2-digit'},{day: '2-digit'},  ];
 		Promise.all(promises).then(coords => {
 			let val = 0;
 			//console.log(coords.obj)
@@ -115,9 +124,9 @@ function loadPlanets(THREE, scene){
 					System.addPlanet(moon);
 				}
 
-				fetch("https://api.nasa.gov/neo/rest/v1/feed?start_date=2024-10-06&end_date=2024-10-07&api_key=DEMO_KEY").then(res => res.json()).then(res => {
-				
-				    let neos = res.near_earth_objects['2024-10-06'];
+				fetch(`https://api.nasa.gov/neo/rest/v1/feed?start_date=${join(today, options, '-')}&end_date=${join(tomorrow, options, '-')}&api_key=DEMO_KEY`).then(res => res.json()).then(res => {
+					console.log(res)
+				    let neos = res.near_earth_objects[join(today, options, '-')];
 				    let promises = []
 				    for(const neo of neos){
 				        promises.push(getCoords(`%27DES=${neo.id}%27`, true))
