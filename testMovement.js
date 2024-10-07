@@ -192,7 +192,16 @@ class Drive{
 		}
 	}
 }
-
+let today = new Date()
+let tomorrow = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+function join(date, options, separator) {
+   function format(option) {
+      let formatter = new Intl.DateTimeFormat('en', option);
+      return formatter.format(date);
+   }
+   return options.map(format).join(separator);
+}
+let options = [{year: 'numeric'}, {month: 'numeric'},{day: 'numeric'},  ];
 const fetchUrl = "https://corsproxy.io/?https://ssd.jpl.nasa.gov/api/horizons.api?"
 		async function getCoords(spaceObj, isTest){
 			const paramsObj = {
@@ -202,8 +211,8 @@ const fetchUrl = "https://corsproxy.io/?https://ssd.jpl.nasa.gov/api/horizons.ap
 				MAKE_EPHEM: 'YES',
 				EPHEM_TYPE: 'VECTORS',
 				CENTER: '@sun',
-				START_TIME: '2024-10-5',
-				STOP_TIME: '2024-10-6',
+				START_TIME: join(today, options, '-'),
+				STOP_TIME: join(tomorrow, options, '-'),
 				STEP_SIZE: '1d',
 				VEC_TABLE: '1'
 			}
