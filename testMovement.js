@@ -45,7 +45,7 @@ class Planet{
 		this.planetName = obj.planetName;
 		this.gravity = obj.gravity;
 		this.planetObj.userData.planetInfo = obj.planetInfo;
-		this.planetObj.userData.planetName = thePlanetData[obj.planetInfo] ?? obj.planetInfo;
+		this.planetObj.userData.planetName = obj.neoData ?? thePlanetData[obj.planetInfo] ?? obj.planetInfo;
 	}
 	draw(){
 		this.scene.add( this.planetObj );
@@ -194,7 +194,7 @@ class Drive{
 }
 
 const fetchUrl = "https://corsproxy.io/?https://ssd.jpl.nasa.gov/api/horizons.api?"
-		async function getCoords(spaceObj){
+		async function getCoords(spaceObj, isTest){
 			const paramsObj = {
 				format: 'text',
 				COMMAND: spaceObj,
@@ -210,33 +210,34 @@ const fetchUrl = "https://corsproxy.io/?https://ssd.jpl.nasa.gov/api/horizons.ap
 			const searchParams = new URLSearchParams(paramsObj);
 			let text = await fetch(fetchUrl + searchParams.toString());
 			let res = await text.text();
-			if(!res.toLowerCase().includes('radius') || res.toLowerCase().includes('irregular saturnian satellite')){
-				return 'error';
-			}
-			res = res.split("\n");
 			
-			let coords = res[res.indexOf("$$SOE") + 2];
-			const impLine = res.find(e => e.toLowerCase().includes(spaceObj.endsWith('99') ? "vol. mean radius" : "radius") || e.toLowerCase().includes("mean radius"))
-
-			let reworked = impLine.split("= ")[1].trim();
-			reworked = reworked.split(" ")[reworked.includes("<") ? 1 : 0].split("+")[0].replace("~", "");
-
-			reworked = reworked.replace("<", "").trim();
-
-			const radius = parseFloat(reworked);
-			
-			if(isNaN(radius)){
-				return 'error';
-			}
-			coords = coords.split(/[XYZ]/);
-			coords.splice(0, 1);
-			coords = coords.map(cord => {
-				return parseFloat(cord.replaceAll("=", "").trim());
-			})
-
-			let titleLine = res[4].split("  ").filter(e => e != '')[1].trim();
-			
-			return {
+			if(isTest == undefined){
+				if((!res.toLowerCase().includes('radius') || res.toLowerCase().includes('irregular saturnian satellite'))){
+					return 'error';
+				}
+				res = res.split("\n");
+				
+				let coords = res[res.indexOf("$$SOE") + 2];
+				const impLine = res.find(e => e.toLowerCase().includes(spaceObj.endsWith('99') ? "vol. mean radius" : "radius") || e.toLowerCase().includes("mean radius"))
+	
+				let reworked = impLine.split("= ")[1].trim();
+				reworked = reworked.split(" ")[reworked.includes("<") ? 1 : 0].split("+")[0].replace("~", "");
+	
+				reworked = reworked.replace("<", "").trim();
+	
+				const radius = parseFloat(reworked);
+				
+				if(isNaN(radius)){
+					return 'error';
+				}
+				coords = coords.split(/[XYZ]/);
+				coords.splice(0, 1);
+				coords = coords.map(cord => {
+					return parseFloat(cord.replaceAll("=", "").trim());
+				})
+	
+				let titleLine = res[4].split("  ").filter(e => e != '')[1].trim();
+							return {
 				x: coords[0],
 				y: coords[1],
 				z: coords[2],
@@ -244,6 +245,34 @@ const fetchUrl = "https://corsproxy.io/?https://ssd.jpl.nasa.gov/api/horizons.ap
 				obj: spaceObj,
 				planetInfo: titleLine
 			}
+			}else{
+	
+				res = res.split("\n");
+								let coords = res[res.indexOf("$$SOE") + 2];
+								coords = coords.split(/[XYZ]/);
+				coords.splice(0, 1);
+				coords = coords.map(cord => {
+					return parseFloat(cord.replaceAll("=", "").trim());
+				})
+				return {
+				x: coords[0],
+				y: coords[1],
+				z: coords[2],
+				radius: 1000,
+				obj: spaceObj,
+				planetInfo: "Asteroid..."
+			}
+			}
+			//}else{
+				// let coords = res[res.indexOf("$$SOE") + 2];
+				// 				coords = coords.split(/[XYZ]/);
+				// coords.splice(0, 1);
+				// coords = coords.map(cord => {
+				// 	return parseFloat(cord.replaceAll("=", "").trim());
+				// })
+				// console.log(coords)
+			//}
+
 				
 		}
 
